@@ -12,7 +12,7 @@
 	maxWait="3000"/>
 </Context>
 
- <!-- <Context>
+<!-- <Context>
 	<Resource name = "jdbc_mariadb"
 		auth = "Container"
 		type = "javax.sql.DataSource"

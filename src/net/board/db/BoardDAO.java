@@ -29,7 +29,7 @@ public class BoardDAO {
 		try {
 			Context init = new InitialContext();
 			ds = (DataSource) init.lookup("java:comp/env/jdbc/joyrapture");
-//			ds = (DataSource) init.lookup("java:comp/env/jdbc_mariadb");
+			//ds = (DataSource) init.lookup("java:comp/env/jdbc_mariadb");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
@@ -274,9 +274,9 @@ public class BoardDAO {
 //			int endrow = startrow + limit - 1;
 			int endrow = limit;
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startrow);
-			pstmt.setInt(2, endrow);
-			pstmt.setInt(3, user_key);
+			pstmt.setInt(1, user_key);
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, endrow);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				BoardBean bb = new BoardBean();
@@ -323,6 +323,7 @@ public class BoardDAO {
 		} finally {
 			close();
 		}
+		System.out.println(boardbean);
 		return boardbean;
 	}
 
